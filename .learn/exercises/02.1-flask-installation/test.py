@@ -1,4 +1,4 @@
-import toml, pytest, os
+import tomli, pytest, os
 
 @pytest.mark.it("Pipfile must exist")
 def test_pipfile_exists():
@@ -8,6 +8,6 @@ def test_pipfile_exists():
 def test_pipfile_contains_flask():
   with open("Pipfile", "r") as f:
     toml_content = f.read()
-    parsed_toml = toml.loads(toml_content)
+    parsed_toml = tomli.loads(toml_content)
     keys = parsed_toml["packages"].keys()
     assert "flask" in keys
